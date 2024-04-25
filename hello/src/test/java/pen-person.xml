@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 모나미펜 3000 -->
+	<bean id="monamiPen" class="kr.co.greenart.Pen">
+		<constructor-arg value="모나미펜"></constructor-arg>
+		<constructor-arg value="3000"></constructor-arg>
+	</bean>
+	
+	<!-- 길동 33 모나미펜 -->
+	<bean id="kildong" class="kr.co.greenart.Person">
+		<constructor-arg value="길동"></constructor-arg>
+		<constructor-arg value="33"></constructor-arg>
+		<constructor-arg ref="monamiPen"></constructor-arg>
+	</bean>
+</beans>
