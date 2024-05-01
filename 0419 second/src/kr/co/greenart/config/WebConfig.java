@@ -1,9 +1,12 @@
 package kr.co.greenart.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -20,6 +23,13 @@ import kr.co.greenart.interceptor.LoggerInterceptor;
 public class WebConfig implements WebMvcConfigurer {
 	@Autowired
 	private LoggerInterceptor loggerInterceptor;
+	
+	@Bean
+	public MultipartResolver multipartResolver() {
+		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+		multipartResolver.setDefaultEncoding("UTF-8");
+		return multipartResolver;
+	}
 	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {

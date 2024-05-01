@@ -25,7 +25,11 @@ public class PersonRepository {
 	};
 	
 	public int countTotal() {
+		// 시작 시간 기록
+		// 작업
 		return template.queryForObject("SELECT COUNT(*) FROM person", int.class);
+		// 작업 후 종료 시간 비교
+		// 출력
 	}
 	
 	public List<Person> findAll() {
